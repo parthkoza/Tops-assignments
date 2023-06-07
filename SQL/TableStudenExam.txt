@@ -1,0 +1,105 @@
+CREATE TABLE student1 (RollNumber int AUTO_INCREMENT,
+                      Name varchar(200),
+                      Branch varchar(200),
+                      PRIMARY KEY (RollNumber);
+                      )
+INSERT into student1(Name,Branch)
+	    VALUES ("Parth","Computer Science"),
+                   ("Hiren","PetroChemicals Engineering"),
+                   ("Hardik","Computer Science");
+
+CREATE TABLE examination (RollNumber int ,
+			 S_code varchar(200),
+			 Marks int,
+			 P_code varchar(200),
+			 Foreign key(RollNumber) references student1 (RollNumber));
+                      
+            		
+INSERT into examination (RollNumber,S_code ,Marks,P_code)
+			VALUES (1,"PCE11",50,"PCE"),
+			       (1,"PCE12",60,"PCE"),
+                               (2,"CS111",66,"CS"),
+                               (2,"CS112",70,"CS"),
+                               (3,"CS113",45,"CS"),
+                               (3,"CS114",50,"CS");
+
+
+THEORY : 
+
+1. How to Create Table student write an SQL Query?
+ANSWER : CRETE TABLE student (RollNo int AUTO_INCREMENT ,
+			      StName varchar(200),
+			      StAge int,
+			      SubjectName varchar(200));
+
+2. How to Create a Exam table with Foreign key on roll no write a SQL Query?
+
+Answer : CRETE TABLE student (RollNo int AUTO_INCREMENT ,
+			      StName varchar(200),
+			      StAge int,
+			      SubjectName varchar(200),
+			      FOREIGN KEY (RollNO) REFERENCES student(RollNo) );
+
+3. What is SQL Key Constraints? Write an Example of SQL Key Constraints?
+Answer : SQL constraints are used to specify rules for the data in a table.
+
+        -Constraints are used to limit the type of data that can go into a table. This ensures 	the accuracy and reliability of the data in the table. If there is any violation between 	the constraint and the data action, the action is aborted.
+
+
+
+	The following constraints are commonly used in SQL:
+
+	
+	UNIQUE - Ensures that all values in a column are different
+	PRIMARY KEY - A combination of a NOT NULL and UNIQUE. Uniquely identifies each row in a table
+	FOREIGN KEY - Prevents actions that would destroy links between tables
+	
+
+4. What is SQL View ? Create a View of Student Table?
+ANSWER: In SQL, a view is a virtual table based on the result-set of an SQL statement.
+
+	A view contains rows and columns, just like a real table. The fields in a view are fields from one or more real tables in the database.
+
+Example : 
+CRETE VIEW [Maths - Students] AS SELECT StName,RollNO FROM Student WHERE Subject ="Maths" ;
+
+ 5. What is SQL and How to Create a table with Foreign Key?
+ANSWER : Structured Query Language(SQL), is a domain-specific language used in programming and designed for managing data held in a relational database management system, or for stream 	 processing in a relational data stream management system.
+	
+	SYNTAX OF FOREIGN KEY :
+				CREATE TABLE Orders (
+    				OrderID int NOT NULL PRIMARY KEY,
+   				OrderNumber int NOT NULL,
+  			        PersonID int FOREIGN KEY REFERENCES Persons(PersonID));
+
+6. What is trigger and how to Create a Trigger in SQL?
+ANSWER : 
+         Trigger: A trigger is a stored procedure in database which automatically invokes whenever a special event in the database occurs. For example, a trigger can be invoked when a row 		 is inserted into a specified table or when certain table columns are being updated. 
+
+	 Syntax:
+
+		create trigger [trigger_name] 
+		[before | after]  
+		{insert | update | delete}  
+		on [table_name]  
+		[for each row]  
+		[trigger_body] 
+
+7. What is Difference Between DBMS and RDBMS?
+ANSWER : (i)DBMS-stores data as file. RDBMS - stores data in tabular form.
+	 (ii)DBMS- Data elements need to access individually. RDBMS- Multiple data elements can be accessed at the same time.
+	 (iii)DBMS- No relationship between data.  RDBMS -Data is stored in the form of tables which are related to each other.
+	 (iv)DBMS - Normalization is not present.RDBMS - Normalization is present.
+	 (V) DBMS-  does not support distributed database. RDBMS- supports distributed database.
+
+
+8. What is Normalization?
+ANSWER : Normalization is the process to eliminate data redundancy and enhance data integrity in the table. Normalization also helps to organize the data in the database. It is a multi-	step process that sets the data into tabular form and removes the duplicated data from the relational tables.
+
+	Normalization organizes the columns and tables of a database to ensure that database integrity constraints properly execute their dependencies. It is a systematic technique of 	decomposing tables to eliminate data redundancy (repetition) and undesirable characteristics like Insertion, Update, and Deletion anomalies.
+
+
+
+
+
+			      
